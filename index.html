@@ -54,6 +54,8 @@ var textarea2 = document.getElementById("outputText");
     function Rot13() {
 
        textarea2.value = textarea.value.split(" ").sort().join(" ")
+	   .replace("a", "n")
+	   .replace("b", "o")
     }
 </script>
 </body>

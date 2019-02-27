@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
 <title>cypher encoding</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="hello-web.css" type="text/css"/>
 </head>
 <body>
@@ -11,12 +10,14 @@
   <p>Caesar | Rot13</p>
 </div>
 
+<!-- NAVIGATION -->
 <div class="topnav">
   <a href=" "><b><u>Home</u></b></a>
   <a href="page2.html">Page 2</a>
   <a href="page3.html">Page 3</a>
 </div>
 
+<!-- SIDE PANEL -->
 <div class="row">
   <div class="column side">
     <h2 class="headings">About</h2>
@@ -27,18 +28,33 @@
 <a href ="https://en.uncyclopedia.co/wiki/UnNews:Frosty_the_Snowman_canonized_as_divine_being">VATICAN CITY</a> -- Frosty the Snowman is a fairy tale they say, but don't tell that to the Roman Catholic Church. After decades of debate, the famed jolly, happy soul is not only accepted as canonical, but was officially declared divine by the Vatican. </p>
 </div>
 
+<!-- CIPHERS -->
 <div class="column middle">
 
-<h2 class="headings">Cipher Converter</h2>
-
-  </div>
-
+<h2 class="headings">Cipher Converters</h2>
+ <p class='content'> Text to be encoded:
+  <br>
+  <textarea id="inputText" rows="4" cols="41"></textarea>
+  <button onclick="Rot13()">Encode >> </button>
+  <textarea id="outputText" rows="4" cols="41" readonly></textarea>
+ </p>
 </div>
+</div>
+
 
 <!-- FOOTER -->
 <div class="footer">
   <p class="fcontent">Rvaliute  40323806  2019 <br> Edinburgh Napier University</p>
 </div>
-  
+
+<!-- SCRIPTS -->
+<script>
+var textarea = document.getElementById("inputText");
+var textarea2 = document.getElementById("outputText");
+    function Rot13() {
+
+       textarea2.value = textarea.value.split(" ").sort().join(" ")
+    }
+</script>
 </body>
 </html>

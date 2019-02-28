@@ -31,12 +31,31 @@
 <!-- CIPHERS -->
 <div class="column middle">
 
-<h2 class="headings">Cipher Converters</h2>
- <p class='content'> Text to be encoded:
+<h2 class="headings">Conversion</h2>
+<p class='content'>Cipher: <select name="cipher">
+
+	<!-- Rot13 drop down button-->
+	<option value="Rot13">Rot13</option>
+	
+	<!-- Morse drop down button -->
+	<option value="Morse">Morse</option>
+	</p>
+</select>
+
+ <p class='content'>Text to be <select name="coding">
+	<option value="Encoded">Encoded</option>
+	<option value="Decoded">Decoded</option>
+</select>
+:
+</p>
   <br>
-  <textarea id="inputText" rows="4" cols="41"></textarea>
-  <button onclick="Rot13()">Encode >> </button>
+  
+  <textarea id="inputText" rows="4" cols="41" onfocus=reset></textarea>
   <textarea id="outputText" rows="4" cols="41" readonly></textarea>
+  <br>
+    <button class="reset" onclick="erase()">Reset</button>
+	<button onclick="Morse()">Encode</button>
+	<button onclick="MorseDecode()">Decode</button>
  </p>
 </div>
 </div>
@@ -51,12 +70,51 @@
 <script>
 var textarea = document.getElementById("inputText");
 var textarea2 = document.getElementById("outputText");
-    function Rot13() {
+    function Morse() {
 
        textarea2.value = textarea.value.split(" ").sort().join(" ")
-	   .replace("a", "n")
-	   .replace("b", "o")
-    }
+	   .replace(/a/gi, ".- ")
+	   .replace(/b/gi, "-... ")
+	   .replace(/c/gi, "-.-. ")
+	   .replace(/d/gi, "-.. ")
+	   .replace(/e/gi, ". ")
+	   .replace(/f/gi, "..-. ")
+	   .replace(/g/gi, "--. ")
+	   .replace(/h/gi, ".... ")
+	   .replace(/i/gi, ".. ")
+	   .replace(/j/gi, ".--- ")
+	   .replace(/k/gi, "-.- ")
+	   .replace(/l/gi, ".-.. ")
+	   .replace(/m/gi, "-- ")
+	   .replace(/n/gi, "-. ")
+	   .replace(/o/gi, "--- ")
+	   .replace(/p/gi, ".--. ")
+	   .replace(/q/gi, "--.- ")
+	   .replace(/r/gi, ".-. ")
+	   .replace(/s/gi, "... ")
+	   .replace(/t/gi, "- ")
+	   .replace(/u/gi, "..- ")
+	   .replace(/v/gi, "...- ")
+	   .replace(/w/gi, ".-- ")
+	   .replace(/x/gi, "-..- ")
+	   .replace(/y/gi, "-.-- ")
+	   .replace(/z/gi, "--.. ")
+	  }
+	  
+	function MorseDecode() {
+
+       textarea2.value = textarea.value.split(" ").sort().join(" ")
+	   .replace(/\.-/g, "a")
+	   .replace(/\.\.\./g, "b")
+	   .replace(/-\.-\./g, "c")
+	   .replace(/-\.\./g, "d")
+	   .replace(/\./g, "e")
+	  }
+	
+	function erase() {
+		document.getElementById("inputText").value = "";
+		document.getElementById("outputText").value = "";
+	}
 </script>
 </body>
 </html>

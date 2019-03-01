@@ -132,6 +132,15 @@ button:hover {
   opacity: 0.8;
 }
 
+.reset {
+  background-color: #aa6f73;
+  color: white;
+  padding: 5px 8px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+
 
 .dropbtn {
   background-color: #eea990;

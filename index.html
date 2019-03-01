@@ -32,15 +32,22 @@
 <div class="column middle">
 
 <h2 class="headings">Conversion</h2>
+<p class='content'>Number to shift by: <select id="shiftSelect">
+	 <option value="11">11</option>
+	 <option value="12">12</option>
+	 <option value="13">13</option>
+	</select>
+	
 <p class='content'>Enter the text to encode:</p>
   <textarea id="inputText" rows="4" cols="41" onfocus=reset></textarea>
   <textarea id="outputText" rows="4" cols="41" readonly></textarea>
   <br>
     <button class="reset" onclick="erase()">Reset</button>
 
-	<button onclick="Morse()">Encode</button>
-	<button onclick="MorseDecode()">Decode</button>
-	<button onclick="Rot13()">Rot13 Encode</button>
+	<button onclick="MorseEncode()">Morse Encode</button>
+	<button onclick="MorseDecode()">Morse Decode</button>
+	<button onclick="Rot13Encode()">Rot13 Encode</button>
+	<button onclick="Rot13Decode()">Rot13 Decode</button>
  </p>
 </div>
 </div>
@@ -55,8 +62,9 @@
 <script>
 var textarea = document.getElementById("inputText");
 var textarea2 = document.getElementById("outputText");
+var shiftChoice = document.getElementById("shiftSelect").value;
 
-    function Morse() {
+    function MorseEncode() {
 
        textarea2.value = textarea.value.split(" ").sort().join(" ")
 	   .replace(/a/gi, ".- ")
@@ -109,7 +117,28 @@ var textarea2 = document.getElementById("outputText");
 	  }
 	
 	
-	function Rot13() {
+	function Rot13Encode() {
+		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
+		/*var shift = 13;*/
+		
+		var shift = Number(shiftChoice.value);
+		window.alert(isNaN(shiftChoice)+shiftChoice)
+		
+		var output = "";
+		
+		for (var i = 0; i < str.length; i ++) {
+			var character = str[i];
+			var code = str.charCodeAt(i);
+			
+                character = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+				
+			output += character;
+		}
+		
+		textarea2.value = output;
+	}
+	
+	function Rot13Decode() {
 		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
 		var shift = 13;
 		var output = "";
@@ -118,7 +147,7 @@ var textarea2 = document.getElementById("outputText");
 			var c = str[i];
 			var code = str.charCodeAt(i);
 			
-                c = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+				c = String.fromCharCode(((code - 97 + shift) % 26) + 97);
 				
 			output += c;
 		}

@@ -56,6 +56,7 @@
     <button class="reset" onclick="erase()">Reset</button>
 	<button onclick="Morse()">Encode</button>
 	<button onclick="MorseDecode()">Decode</button>
+	<button onclick="Rot13()">Rot13 Encode</button>
  </p>
 </div>
 </div>
@@ -70,6 +71,7 @@
 <script>
 var textarea = document.getElementById("inputText");
 var textarea2 = document.getElementById("outputText");
+
     function Morse() {
 
        textarea2.value = textarea.value.split(" ").sort().join(" ")
@@ -103,17 +105,47 @@ var textarea2 = document.getElementById("outputText");
 	  
 	function MorseDecode() {
 
-       textarea2.value = textarea.value.split(" ").sort().join(" ")
-	   .replace(/\.-/g, "a")
-	   .replace(/\.\.\./g, "b")
-	   .replace(/-\.-\./g, "c")
-	   .replace(/-\.\./g, "d")
-	   .replace(/\./g, "e")
+		/*var morse = {
+		.- : "a",
+		-... : "b",
+		-.-. : "c",
+		-.. : "d",
+		};*/
+		
+		var convert = textarea.value;
+		convert = convert.split("");
+		
+		for (var i = 0; i < convert.length; i++) {
+			convert[i] = morse[convert[i]];
+		}
+		
+		convert = convert.join(" ");
+		textarea2.value = convert;
+
 	  }
 	
+	
+	function Rot13() {
+	
+		var str = textarea.value.split(" ").sort().join(" ");
+		var shift = 13;
+		var output = "";
+		
+		for (var i = 0; i < str.length; i ++) {
+			var c = str[i];
+			var code = str.charCodeAt(i);
+			
+                c = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+				
+			output += c;
+		}
+		
+		textarea2.value = output;
+	}
+	
 	function erase() {
-		document.getElementById("inputText").value = "";
-		document.getElementById("outputText").value = "";
+		textarea.value = "";
+		textarea2.value = "";
 	}
 </script>
 </body>

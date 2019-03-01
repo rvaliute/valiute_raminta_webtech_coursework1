@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <head>
-<title>cypher encoding</title>
+<title>cipher encoding</title>
 <link rel="stylesheet" href="hello-web.css" type="text/css"/>
 </head>
 <body>
 
 <div class="header">
-  <h1>Cypher Encoding</h1>
-  <p>Caesar | Rot13</p>
+  <h1>Ciphers</h1>
+  <p>Morse | Rot13</p>
 </div>
 
 <!-- NAVIGATION -->
@@ -32,28 +32,12 @@
 <div class="column middle">
 
 <h2 class="headings">Conversion</h2>
-<p class='content'>Cipher: <select name="cipher">
-
-	<!-- Rot13 drop down button-->
-	<option value="Rot13">Rot13</option>
-	
-	<!-- Morse drop down button -->
-	<option value="Morse">Morse</option>
-	</p>
-</select>
-
- <p class='content'>Text to be <select name="coding">
-	<option value="Encoded">Encoded</option>
-	<option value="Decoded">Decoded</option>
-</select>
-:
-</p>
-  <br>
-  
+<p class='content'>Enter the text to encode:</p>
   <textarea id="inputText" rows="4" cols="41" onfocus=reset></textarea>
   <textarea id="outputText" rows="4" cols="41" readonly></textarea>
   <br>
     <button class="reset" onclick="erase()">Reset</button>
+
 	<button onclick="Morse()">Encode</button>
 	<button onclick="MorseDecode()">Decode</button>
 	<button onclick="Rot13()">Rot13 Encode</button>
@@ -126,8 +110,7 @@ var textarea2 = document.getElementById("outputText");
 	
 	
 	function Rot13() {
-	
-		var str = textarea.value.split(" ").sort().join(" ");
+		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
 		var shift = 13;
 		var output = "";
 		
@@ -143,7 +126,8 @@ var textarea2 = document.getElementById("outputText");
 		textarea2.value = output;
 	}
 	
-	function erase() {
+
+    function erase() {
 		textarea.value = "";
 		textarea2.value = "";
 	}

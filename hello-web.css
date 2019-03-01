@@ -133,5 +133,34 @@ button:hover {
 }
 
 
+.dropbtn {
+  background-color: #eea990;
+  color: white;
+  padding: 8px 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #aa6f73;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f7f1f2;
+  font-family: Raleway, Helvetica, sans-serif;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 
 

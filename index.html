@@ -35,7 +35,7 @@
 <p class='content'>Number to shift by: 
 
 <!-- <input id="shiftSelect" type="text" value="shifts">-->
-<select name="" id="shiftSelect" onchange="myFunction(event)">
+<select name="" id="shiftSelect" onchange="Rot13Encode(event)">
      <option disable selected>Choose value</option>
 	 <option value="11">11</option>
 	 <option value="12">12</option>
@@ -103,12 +103,12 @@ function onchange(e) {
 */
 
 
-function myFunction(e) {
+/* function myFunction(e) {
    var shift = document.getElementById("shiftSelect").value = e.target.value
 window.alert(shift)
-}
+} */
 
-function Rot13Encode() {
+function Rot13Encode(e) {
 		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
 		/*var shift = 13;*/
 		
@@ -117,7 +117,7 @@ function Rot13Encode() {
 /*var shift = document.getElementById("shiftSelect").value = e.target.value*/
 
 /*var shift = document.getElementById("shiftSelect").selectedIndex = e.target.value*/
-
+var shift = document.getElementById("shiftSelect").value = e.target.value
 window.alert(shift);
       
 		var output = "";

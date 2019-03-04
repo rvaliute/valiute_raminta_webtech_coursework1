@@ -32,7 +32,11 @@
 <div class="column middle">
 
 <h2 class="headings">Conversion</h2>
-<p class='content'>Number to shift by: <select id="shiftSelect">
+<p class='content'>Number to shift by: 
+
+<!-- <input id="shiftSelect" type="text" value="shifts">-->
+<select name="" id="shiftSelect" onchange="myFunction(event)">
+     <option disable selected>Choose value</option>
 	 <option value="11">11</option>
 	 <option value="12">12</option>
 	 <option value="13">13</option>
@@ -62,7 +66,91 @@
 <script>
 var textarea = document.getElementById("inputText");
 var textarea2 = document.getElementById("outputText");
-var shiftChoice = document.getElementById("shiftSelect").value;
+
+/* var shiftChoice = document.getElementById("shiftSelect").selectedIndex;*/
+
+/*
+document.getElementById("shiftSelect").addEventListener('change', onchange);
+*/
+
+/*
+document.getElementById("shiftSelect").onchange = function {
+    localstorage.setItem('selecteditem', document.getElementById("shiftSelect").value;
+} */
+
+
+/*
+if (localStorage.getItem('item')) {
+    document.getElementById("selecteditem").options[localStorage.getItem('selecteditem')].selected=true;
+*/
+
+
+/*
+function onchange(e) {
+    if (e.currentTarget.value === '11') {
+       window.location.reload();
+}
+    else
+       if (e.currentTarget.value === '12') {
+       window.location.reload();
+}
+
+    else
+       if (e.currentTarget.value === '13'){
+       window.location.reload();
+      } 
+    }
+*/
+
+
+function myFunction(e) {
+   var shift = document.getElementById("shiftSelect").value = e.target.value
+window.alert(shift)
+}
+
+function Rot13Encode() {
+		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
+		/*var shift = 13;*/
+		
+		/*var shift = document.getElementsByTagName("option")[shiftChoice].value;*/
+
+/*var shift = document.getElementById("shiftSelect").value = e.target.value*/
+
+/*var shift = document.getElementById("shiftSelect").selectedIndex = e.target.value*/
+
+window.alert(shift);
+      
+		var output = "";
+		
+		for (var i = 0; i < str.length; i ++) {
+			var character = str[i];
+			var code = str.charCodeAt(i);
+			
+                character = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+				
+			output += character;
+		}
+		
+		textarea2.value = output;
+	}
+	
+	function Rot13Decode() {
+		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
+		var shift = 13;
+		var output = "";
+		
+		for (var i = 0; i < str.length; i ++) {
+			var c = str[i];
+			var code = str.charCodeAt(i);
+			
+				c = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+				
+			output += c;
+		}
+		
+		textarea2.value = output;
+	}
+	
 
     function MorseEncode() {
 
@@ -115,46 +203,6 @@ var shiftChoice = document.getElementById("shiftSelect").value;
 		textarea2.value = convert;
 
 	  }
-	
-	
-	function Rot13Encode() {
-		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
-		/*var shift = 13;*/
-		
-		var shift = Number(shiftChoice.value);
-		window.alert(isNaN(shiftChoice)+shiftChoice)
-		
-		var output = "";
-		
-		for (var i = 0; i < str.length; i ++) {
-			var character = str[i];
-			var code = str.charCodeAt(i);
-			
-                character = String.fromCharCode(((code - 97 + shift) % 26) + 97);
-				
-			output += character;
-		}
-		
-		textarea2.value = output;
-	}
-	
-	function Rot13Decode() {
-		var str = textarea.value.toLowerCase().split(" ").sort().join(" ");
-		var shift = 13;
-		var output = "";
-		
-		for (var i = 0; i < str.length; i ++) {
-			var c = str[i];
-			var code = str.charCodeAt(i);
-			
-				c = String.fromCharCode(((code - 97 + shift) % 26) + 97);
-				
-			output += c;
-		}
-		
-		textarea2.value = output;
-	}
-	
 
     function erase() {
 		textarea.value = "";

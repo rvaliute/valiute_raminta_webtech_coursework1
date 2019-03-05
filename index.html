@@ -59,6 +59,8 @@
     <button class="reset" onclick="erase()">Reset All</button>
 	<button onclick="MorseEncode()">Encode</button>
 	<button onclick="MorseDecode()">Decode</button>
+
+<img class="resize" src="65042F99-A5D3-428B-9FFE-40B6F0F1962A.png" alt="Rot13">
 </div>
 </div>
 
@@ -147,8 +149,50 @@ window.alert(shift);
 	   .replace(/z/gi, "--.. ")
 	  }
 	  
-	function MorseDecode() {
+	function MorseDecode(item,index) {
+   var translation = [item.morse 
 
+                var alphabetpairs = [
+               {morse : ".-", letter: "A"},
+               {morse: "-...", letter: "B"},
+               {morse: "-.-.", letter: "C"}
+               ];
+
+                /* "-..": "D",
+                ".": "E",
+                "..-.": "F",
+                "--.": "G",
+                "....": "H",
+                "..": "I",
+                ".---": "J",
+                "-.-": "K",
+                ".-..": "L",
+                "--": "M",
+                "-.": "N",
+                "---": "O",
+                ".--.": "P",
+                "--.-": "Q",
+                ".-.": "R",
+                "...": "S",
+                "-": "T",
+                "..-": "U",
+                "...-": "V",
+                ".--": "W",
+                "-..-": "X",
+                "-.--": "Y",
+                "--..": "Z",
+                "-----": "0",
+                ".----": "1",
+                "..---": "2",
+                "...--": "3",
+                "....-": "4",
+                ".....": "5",
+                "-....": "6",
+                "--...": "7",
+                "---..": "8",
+                "----.": "9" }*/
+
+/*
 var output = "";
 
 		var morse = {
@@ -168,6 +212,7 @@ var output = "";
         }
 
       textarea4.value=output;
+*/
 
 	  }
 

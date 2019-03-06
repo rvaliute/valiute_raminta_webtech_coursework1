@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <head>
-<title>cipher encoding</title>
+<title>the memeing of cyph</title>
 <link rel="stylesheet" href="hello-web.css" type="text/css"/>
 </head>
 <body>
 
 <div class="header">
-  <h1>Encoding</h1>
+  <h1>Encode  Decode  Convert</h1>
   <p>Rot13 | Morse</p>
 </div>
 
 <!-- NAVIGATION -->
 <div class="topnav">
   <a href=" "><b><u>Home</u></b></a>
-  <a href="page2.html">Page 2</a>
+  <a href="page2.html">About</a>
   <a href="page3.html">Page 3</a>
 </div>
 
@@ -21,7 +21,7 @@
 <div class="row">
   <div class="column side">
     <h2 class="headings">About</h2>
-    <img class="resize" src="D1104860-3029-4F86-88FA-73100FAD92B9.gif" alt="Dog not found :(">
+    <img class="resize" src="facingright.gif" alt="Dog not found :(">
 <br>
 <p class="content"><a href="http://uncyclopedia.wikia.com/wiki/Thursday"> Thursday night</a>, the news broke that National Enquirer publisher and former Donald Trump ally David Pecker ( hee-hee) was planning to blackmail Amazon CEO Jeff Bezos with pictures of the retail giant's own pecker.
 <br><br>
@@ -37,6 +37,7 @@
 <p class='content'>Enter the text to encode/decode:</p>
   <textarea id="inputText" rows="4" cols="41" onfocus=reset></textarea>
   <textarea id="outputText" rows="4" cols="41" readonly></textarea>
+<img class="codesheet" src="rot13.jpg" alt="Rot13">
 
 <p class='content'>Number to shift by:
 <select name="" id="shiftSelect" onchange="Rot13Encode(event)">
@@ -48,19 +49,20 @@
 <br>
 	<!-- <button onclick="Rot13Encode()">Rot13 Encode</button> -->
 	<!-- <button onclick="Rot13Decode()">Rot13 Decode</button> -->
-<br><br>
+<br><br><br>
 
 <!-- MORSE -->
 <h3 class='misc'>Morse</h3>
 <p class='content'>Insert text/morse below:</p>
   <textarea id="inputText2" rows="4" cols="41" onfocus=reset></textarea>
   <textarea id="outputText2" rows="4" cols="41" readonly></textarea>
+<img class="codesheet" src="morse.jpg" alt="Rot13">
   <br>
     <button class="reset" onclick="erase()">Reset All</button>
 	<button onclick="MorseEncode()">Encode</button>
 	<button onclick="MorseDecode()">Decode</button>
 
-<img class="resize" src="65042F99-A5D3-428B-9FFE-40B6F0F1962A.png" alt="Rot13">
+
 </div>
 </div>
 
@@ -149,48 +151,39 @@ window.alert(shift);
 	   .replace(/z/gi, "--.. ")
 	  }
 	  
-	function MorseDecode(item,index) {
-   var translation = [item.morse 
+	function MorseDecode() {
+  var output="";
+  var alphabet = { 
+    '.-':'a',
+    '-...':'b',
+    '-.-.':'c'
+};
 
-                var alphabetpairs = [
-               {morse : ".-", letter: "A"},
-               {morse: "-...", letter: "B"},
-               {morse: "-.-.", letter: "C"}
-               ];
-
-                /* "-..": "D",
-                ".": "E",
-                "..-.": "F",
-                "--.": "G",
-                "....": "H",
-                "..": "I",
-                ".---": "J",
-                "-.-": "K",
-                ".-..": "L",
-                "--": "M",
-                "-.": "N",
-                "---": "O",
-                ".--.": "P",
-                "--.-": "Q",
-                ".-.": "R",
-                "...": "S",
-                "-": "T",
-                "..-": "U",
-                "...-": "V",
-                ".--": "W",
-                "-..-": "X",
-                "-.--": "Y",
-                "--..": "Z",
-                "-----": "0",
-                ".----": "1",
-                "..---": "2",
-                "...--": "3",
-                "....-": "4",
-                ".....": "5",
-                "-....": "6",
-                "--...": "7",
-                "---..": "8",
-                "----.": "9" }*/
+/*
+    '-..':    'd',
+    '.':      'e',
+    '..-.':   'f',
+    '--.':    'g',
+    '....':   'h',
+    '..':     'i',
+    '.---':   'j',
+    '-.-':    'k',
+    '.-..':   'l',
+    '--':     'm',
+    '-.':     'n',
+    '---':    'o',
+    '.--.':   'p',
+    '--.-':   'q',
+    '.-.':    'r',
+    '...':    's',
+    '-':      't',
+    '..-':    'u',
+    '...-':   'v',
+    '.--':    'w',
+    '-..-':   'x',
+    '-.--':   'y',
+    '--..':   'z'
+  };*/
 
 /*
 var output = "";
@@ -213,8 +206,7 @@ var output = "";
 
       textarea4.value=output;
 */
-
-	  }
+}
 
     function erase() {
 		textarea.value = "";

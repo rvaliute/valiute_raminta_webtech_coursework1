@@ -22,12 +22,14 @@
 <!-- SIDE PANEL -->
 <div class="row">
   <div class="column side">
-    <h2 class="headings">About</h2>
+    <h2 class="headings">How to use:</h2>
 		<img class="resize" src="facingright.gif" alt="Image not found :(">
-		<br>
-		<p class="content"><a href="http://uncyclopedia.wikia.com/wiki/Thursday"> Thursday night</a>, the news broke that National Enquirer publisher and former Donald Trump ally David Pecker ( hee-hee) was planning to blackmail Amazon CEO Jeff Bezos with pictures of the retail giant's own pecker.
+		<p class="content">Enter the text you want encoded into the first box and hit "encode".
 		<br><br>
-		<a href ="https://en.uncyclopedia.co/wiki/UnNews:Frosty_the_Snowman_canonized_as_divine_being">VATICAN CITY</a> -- Frosty the Snowman is a fairy tale they say, but don't tell that to the Roman Catholic Church. After decades of debate, the famed jolly, happy soul is not only accepted as canonical, but was officially declared divine by the Vatican. </p>
+		The encoded morse will appear in the second box.
+		<br><br>
+		Hit "Reset" to clear all entries.
+		<br><br>
 </div>
 
 
@@ -44,7 +46,7 @@
 		<button onclick="MorseEncode()">Encode</button>
 		<button onclick="MorseDecode()">Decode</button>
 	<br><br>
-		<p class="content">Reference:</p>
+		<p class="content">Reference (click image to englarge):</p>
 		<!-- Morse Modal -->
 		<div id="myModal" class="modal">
 			<div class="modal-content">
@@ -70,4 +72,12 @@
 <script src="modal.js" type="text/javascript"></script>
 
 </body>
+
+<script>
+function erase() {
+	textarea3.value = "";
+	textarea4.value = "";
+    location.reload();
+	}
+</script>
 </html>

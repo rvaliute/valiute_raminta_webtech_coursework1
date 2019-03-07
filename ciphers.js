@@ -72,49 +72,30 @@ function Rot13Encode(e) {
 	  
 function MorseDecode() {
 	var output="";
-	var alphabet = { 
-    '.-':'a',
-    '-...':'b',
-    '-.-.':'c'
-	};
-
-/*
-    '-..':    'd',
-    '.':      'e',
-    '..-.':   'f',
-    '--.':    'g',
-    '....':   'h',
-    '..':     'i',
-    '.---':   'j',
-    '-.-':    'k',
-    '.-..':   'l',
-    '--':     'm',
-    '-.':     'n',
-    '---':    'o',
-    '.--.':   'p',
-    '--.-':   'q',
-    '.-.':    'r',
-    '...':    's',
-    '-':      't',
-    '..-':    'u',
-    '...-':   'v',
-    '.--':    'w',
-    '-..-':   'x',
-    '-.--':   'y',
-    '--..':   'z'
-  };
-
-var output = "";
-
-		var morse = {
-		".- ": "a",
+	var convert = textarea3.value
+	var morse = {
+		".- ": 'a',
 		"-... ": "b",
 		"-.-. ": "c",
-		"-.. ": "d"
+		"-.. ": "d",
+		"." : "e"
+		
 		};
+			
+		for (var i = 0; i < convert.length; i++) {
+			if (convert === " ") { /*if text entered is a space */
+					/* compare string and return value /*
+					/* else */
+					/* keep recording value entered */
+				} 
+								
+				output += morse[convert.split(" ").join(" ").charAt(i)];
+			}
 		
-		var convert = textarea3.value.split(" ").sort().join(" ")
-		
+		textarea4.value = output;
+}
+	/*
+	var convert = textarea3.value.split(" ").sort().join(" ")
 		for (var i = 0; i < convert.length; i++) {
 			convert[i] = morse[convert[i]];
 
@@ -123,11 +104,11 @@ var output = "";
         }
 
       textarea4.value=output;
-*/
-}
-
+} */
 function erase() {
 	textarea.value = "";
+	textarea2.value = "";
 	textarea3.value = "";
+	textarea4.value = "";
     location.reload();
 	}
